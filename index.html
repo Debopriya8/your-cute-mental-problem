@@ -17,10 +17,10 @@
     }
 
     .letter {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.22);
       padding: 40px;
       border-radius: 25px;
-      max-width: 540px;
+      max-width: 560px;
       text-align: center;
       box-shadow: 0 15px 35px rgba(0,0,0,0.3);
       backdrop-filter: blur(10px);
@@ -35,6 +35,12 @@
     p {
       font-size: 1.15em;
       line-height: 1.7;
+    }
+
+    .spotify {
+      margin: 20px 0;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     button {
@@ -69,6 +75,7 @@
       font-size: 1.05em;
     }
 
+    /* Floating hearts */
     .heart {
       position: absolute;
       color: rgba(255,255,255,0.85);
@@ -86,19 +93,9 @@
         opacity: 0;
       }
     }
-
-    iframe {
-      display: none;
-    }
   </style>
 </head>
 <body>
-
-  <!-- YouTube embed -->
-  <iframe id="ytmusic"
-    src="https://www.youtube.com/embed/1k8m0XxJpN4?enablejsapi=1"
-    allow="autoplay">
-  </iframe>
 
   <div class="letter">
     <h1>My Dear Emon ❤️</h1>
@@ -107,16 +104,24 @@
       This page is simple,<br>
       just like the way I feel about you.<br><br>
 
-      You make ordinary days feel lighter,<br>
-      and quiet moments feel safe.<br><br>
+      You make normal days softer,<br>
+      and quiet moments warmer.<br><br>
 
       Loving you doesn’t feel loud —<br>
-      it just feels true.
+      it just feels natural.
     </p>
 
-    <button onclick="playSong()">▶️ Play our song</button>
+    <!-- Spotify Embed -->
+    <div class="spotify">
+      <iframe style="border-radius:12px"
+        src="https://open.spotify.com/embed/search/Tumi%20Shei%20Purnota%20Amar"
+        width="100%" height="80"
+        frameborder="0"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+      </iframe>
+    </div>
 
-    <p style="margin-top:15px;"><b>So tell me…</b></p>
+    <p style="margin-top:10px;"><b>So tell me…</b></p>
     <p style="font-size:1.3em;">Will you be my Valentine? 🤍</p>
 
     <button onclick="yesClicked()">YES ❤️</button>
@@ -133,12 +138,6 @@
   </div>
 
   <script>
-    function playSong() {
-      const iframe = document.getElementById("ytmusic");
-      iframe.src =
-        "https://www.youtube.com/embed/1k8m0XxJpN4?autoplay=1";
-    }
-
     function yesClicked() {
       document.getElementById("yesMessage").style.display = "block";
     }
@@ -150,6 +149,7 @@
       btn.style.transform = `translate(${x}px, ${y}px)`;
     }
 
+    // Floating hearts
     setInterval(() => {
       const heart = document.createElement("div");
       heart.className = "heart";
